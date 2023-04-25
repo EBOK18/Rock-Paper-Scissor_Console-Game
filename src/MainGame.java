@@ -5,7 +5,7 @@ public class MainGame {
 
     Scanner scan = new Scanner(System.in);
 
-    /* Copy this to lessen the typing. */
+    /* Copy these shits */
     // System.out.println();
     // System.out.print();
 
@@ -24,6 +24,7 @@ public class MainGame {
                         [3] First to 5
                         """
         );
+
         System.out.print("Answer: ");
         String userAnswer = scan.nextLine().trim();
 
@@ -31,15 +32,15 @@ public class MainGame {
 
         switch (userAnswer) {
             case "1":
-				gameModes.firstGameModeStart();
+				gameModes.setScoreLimit(1);
                 break;
 
             case "2":
-				gameModes.secondGameModeStart();
+				gameModes.setScoreLimit(3);
                 break;
 
             case "3":
-				gameModes.thirdGameModeStart();
+				gameModes.setScoreLimit(5);
                 break;
 
 			case "":
@@ -61,7 +62,7 @@ public class MainGame {
         Random random = new Random();
 		User player1 = new User();
 
-		String userName = player1.getName();
+		String userName = player1.getUsername();
         String winner = "None";
         int aiChoice = random.nextInt(3) + 1;
 
@@ -124,7 +125,7 @@ public class MainGame {
             	System.out.println("AI Bot: Paper");
             	System.out.println("Result: " + winner + " Win!");
         	} else {
-        		// System.out.println("Error: There is a bug. We'll fix it as soon as possible. Thank you for consideration.");
+        		// System.out.println("Error: There is a bug. We'll fix it as soon as possible. Thank you.");
             	System.out.println();
             	System.out.println("Error: Your choice is not on the choices! Choose properly. \nTry Again!");
         	}

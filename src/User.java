@@ -1,16 +1,15 @@
 
 public class User {
-	
-	private static String userName;
 
-	public User() {
+	private static String username;
+
+	public User() { }
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public void setName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 }

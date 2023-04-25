@@ -1,50 +1,28 @@
 
 public class GameModes extends MainGame {
 
-	private boolean gameEnd = false;
 	private int userScore = 0;
 	private int aiScore = 0;
-	
-	public void firstGameModeStart() {
-		// game();
-		int scoreLimit = 1;
-		
-        System.out.println();
-        System.out.println("Winner: " + winnerAnnouncer(scoreLimit) + " Win!");
+	private int scoreLimit;
+
+	public void setScoreLimit(int score) {
+		this.scoreLimit = score;
+		winnerAnnouncer();
+	}
+
+	private void winnerAnnouncer() {
+	    System.out.println();
+        System.out.println("Winner: " + scorer(scoreLimit) + " Win!");
 		System.out.println();
         System.out.println("=== Game Over ===");
         System.out.println("Thank you for Playing!");
         System.out.println();
 	}
-	
-	public void secondGameModeStart() {
-		int scoreLimit = 3;
 
-		System.out.println();
-		System.out.println("Winner: " + winnerAnnouncer(scoreLimit) + " Win!");
-		System.out.println();
-		System.out.println("=== The Game is Over ===");
-		System.out.println("Thank you for playing.");
-        System.out.println();
-	}
-
-	public void thirdGameModeStart() {
-		int scoreLimit = 5;
-
-		System.out.println();
-		System.out.println("Winner: " + winnerAnnouncer(scoreLimit) + " Win!");
-		System.out.println();
-		System.out.println("=== The Game is Over ===");
-		System.out.println("Thank you for playing.");
-		System.out.println();
-	}
-
-	private String winnerAnnouncer(int scoreLimit) {
+	private String scorer(int scoreLimit) {
 		User player1 = new User();
 		String gameWinner = "None";
-		String userName = player1.getName();
-
-		// Continue modifying this method for first game method.
+		String userName = player1.getUsername();
 
 		do {
 			String winner = game();	
@@ -61,14 +39,14 @@ public class GameModes extends MainGame {
 
 			if(userScore == scoreLimit) {
 				gameWinner = userName;
-				gameEnd = true;
+				break;
 			}
 
 			if(aiScore == scoreLimit) {
 				gameWinner = "AI Bot";
-				gameEnd = true;
+				break;
 			}
-		} while(!gameEnd);
+		} while(true);
 
 		return gameWinner;
 	}

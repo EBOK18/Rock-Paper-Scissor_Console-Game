@@ -4,10 +4,10 @@ public class Main {
 
     /* === Rock Paper Scissor Game === */
 
-    /* Copy this to lessen the typing. */
+    /* Copy these nutzxzs */
     // System.out.println();
     // System.out.print();
-
+	
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -22,14 +22,11 @@ public class Main {
             System.out.println("[1] Start\n[0] Exit");
 			System.out.println();
             System.out.print("Answer: ");
-            // int userAnswer = scanner.nextInt(); - Soon change the data type from String to integer after you have learned Exception Handling.
             String userAnswer = scanner.nextLine().trim();;
 			System.out.println();
 
 
             if (userAnswer.equals("1")) {
-				boolean nameIsEmpty = true;
-				
 				do {
 					dashPrinting();
 					System.out.println();
@@ -45,15 +42,16 @@ public class Main {
                 		System.out.println();
 					} else {
 						User player1 = new User();
-						player1.setName(userName);
+						player1.setUsername(userName);
 
-						nameIsEmpty = false;
                 		menuStart = false;
 
                 		MainGame mainGame = new MainGame();
                 		mainGame.gameChecker(true);
+
+						break;
 					}
-				} while(nameIsEmpty);
+				} while(true);
 
             } else if (userAnswer.equals("0")) {
                 dashPrinting();
